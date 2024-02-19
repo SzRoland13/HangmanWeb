@@ -1,0 +1,77 @@
+body {
+    background-color: #88AB8E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.start-game-btn {
+    font-size: 24px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #98d4ac;
+    color: #f6fdc3;
+    transition: background-color 0.3s;
+}
+
+.start-game-btn:hover {
+    background-color: #77b894;
+    color: #F1C27B;
+}
+
+.sidebar {
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+    background-color: #4e7255;
+    color: #f6fdc3;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: #4e7255;
+    color: #f6fdc3;
+    border: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.sidebar a:hover {
+    background-color: #77b894;
+    color: #F1C27B;
+}
+
+.open-btn {
+    font-size: 25px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #98d4ac;
+    border: none;
+    color: #f6fdc3;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+.open-btn:hover{
+    background-color: #77b894;
+    color: #F1C27B;
+}

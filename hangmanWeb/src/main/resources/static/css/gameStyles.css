@@ -1,0 +1,178 @@
+body {
+    background-color: #88AB8E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.start-game-btn {
+    font-size: 24px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #98d4ac;
+    color: #f6fdc3;
+    transition: background-color 0.3s;
+}
+
+.start-game-btn:hover {
+    background-color: #77b894;
+    color: #F1C27B;
+}
+
+a {
+    margin-right: 20px;
+}
+
+.virtual-keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.virtual-key {
+    background-color: #967e76;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    border: 1px solid #756461;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.disableBecauseGuessFound {
+    background-color: #31c765;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    border: 1px solid #77b894;
+    border-radius: 8px;
+    cursor: not-allowed;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.disableBecauseGuessNotFound {
+    background-color: #e85757;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    border: 1px solid #b63434;
+    border-radius: 8px;
+    cursor: not-allowed;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.virtual-key:hover {
+    background-color: #5e4945;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+h2 {
+    padding: 30px;
+    font-size: 50px;
+    text-align: center;
+    color: #FFCF96;
+}
+
+#numberOfMistakes {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    color: #a61111 !important;
+    font-size: 50px;
+}
+
+#titleOfTopic {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffd699;
+    font-size: 60px;
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #e8937c;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 60%;
+    max-height: 80%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-button {
+    background-color: #e07a5f;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    width: 40%;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-button:hover {
+    background-color: #d47d62;
+}
+
+hr {
+    margin: 1rem 0;
+    color: #000000;
+    border: 1px;
+    border-top: solid;
+    opacity: .25;
+    width: fit-content;
+
+}

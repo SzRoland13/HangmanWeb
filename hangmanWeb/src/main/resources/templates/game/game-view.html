@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hangman Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/gameStyles.css}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/javascript/game.js"></script>
+</head>
+<body>
+<h1 id="titleOfTopic" th:text="${titleOfTopic}"></h1>
+<h1 id="numberOfMistakes" th:text="${numberOfMistakes}"></h1>
+<div class="game-container">
+    <h2 id="viewOfSecretWord" th:text="${viewOfSecretWord}"></h2>
+    <div class="virtual-keyboard">
+        <button class="virtual-key" id="button_A" onclick="handleKeyPress('A')">A</button>
+        <button class="virtual-key" id="button_B" onclick="handleKeyPress('B')">B</button>
+        <button class="virtual-key" id="button_C" onclick="handleKeyPress('C')">C</button>
+        <button class="virtual-key" id="button_D" onclick="handleKeyPress('D')">D</button>
+        <button class="virtual-key" id="button_E" onclick="handleKeyPress('E')">E</button>
+        <button class="virtual-key" id="button_F" onclick="handleKeyPress('F')">F</button>
+        <button class="virtual-key" id="button_G" onclick="handleKeyPress('G')">G</button>
+        <button class="virtual-key" id="button_H" onclick="handleKeyPress('H')">H</button>
+        <button class="virtual-key" id="button_I" onclick="handleKeyPress('I')">I</button>
+        <button class="virtual-key" id="button_J" onclick="handleKeyPress('J')">J</button>
+        <button class="virtual-key" id="button_K" onclick="handleKeyPress('K')">K</button>
+        <button class="virtual-key" id="button_L" onclick="handleKeyPress('L')">L</button>
+        <button class="virtual-key" id="button_M" onclick="handleKeyPress('M')">M</button>
+        <button class="virtual-key" id="button_N" onclick="handleKeyPress('N')">N</button>
+        <button class="virtual-key" id="button_O" onclick="handleKeyPress('O')">O</button>
+        <button class="virtual-key" id="button_P" onclick="handleKeyPress('P')">P</button>
+        <button class="virtual-key" id="button_Q" onclick="handleKeyPress('Q')">Q</button>
+        <button class="virtual-key" id="button_R" onclick="handleKeyPress('R')">R</button>
+        <button class="virtual-key" id="button_S" onclick="handleKeyPress('S')">S</button>
+        <button class="virtual-key" id="button_T" onclick="handleKeyPress('T')">T</button>
+        <button class="virtual-key" id="button_U" onclick="handleKeyPress('U')">U</button>
+        <button class="virtual-key" id="button_V" onclick="handleKeyPress('V')">V</button>
+        <button class="virtual-key" id="button_W" onclick="handleKeyPress('W')">W</button>
+        <button class="virtual-key" id="button_X" onclick="handleKeyPress('X')">X</button>
+        <button class="virtual-key" id="button_Y" onclick="handleKeyPress('Y')">Y</button>
+        <button class="virtual-key" id="button_Z" onclick="handleKeyPress('Z')">Z</button>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="gameOverText"></h2>
+            <br>
+            <hr>
+            <button id="playAgainButton" class="modal-button">Play Again</button>
+            <button id="homePageButton" class="modal-button">Home Page</button>
+           <!-- <button id="recordsButton" class="modal-button">Records</button>-->
+        </div>
+
+    </div>
+
+
+</div>
+</body>
+</html>
