@@ -14,17 +14,17 @@ public class Word {
     @Column(name = "word_name")
     private String name;
 
-    @Column(name = "topic_id")
-    private int topicId;
-
+    @ManyToOne
+    @JoinColumn(name = "topic_id")
+    private Topic topic;
 
     public Word() {
     }
 
-    public Word(int id, String name, int topicId) {
+    public Word(int id, String name, Topic topic) {
         this.id = id;
         this.name = name;
-        this.topicId = topicId;
+        this.topic = topic;
     }
 
     public int getId() {
@@ -44,11 +44,18 @@ public class Word {
     }
 
     public int getTopicId() {
-        return topicId;
+        return topic.getId();
     }
 
     public void setTopicId(int topicId) {
-        this.topicId = topicId;
+        this.topic.setId(topicId);
+    }
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
     }
 
     @Override
@@ -56,7 +63,7 @@ public class Word {
         return "Word{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", topic_id=" + topicId +
+                ", topic=" + topic.toString() +
                 '}';
     }
 }

@@ -33,17 +33,18 @@ public class WordController {
 
     @GetMapping("/add/showFormForAdd")
     public String showFormForAdd(Model model){
-        Word word = new Word();
-        model.addAttribute("word", word);
         model.addAttribute("topics", topicService.findAll());
 
         return "word/word-form";
     }
 
     @PostMapping("/save")
-    public String saveFormData(@RequestParam("word") Word word) {
+    public String saveFormData(
+            @RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("topicId") int topic_id) {
+        System.out.println("Got the word: {" + id+" - "+name+" - "+topic_id + "}");
+        Word word = new Word(id,name,topicService.findById(topic_id));
         wordService.save(word);
-        return "redirect:navigation/list-words-and-topics";
+        return "redirect:/nav/edit/wordsAndTopics";
     }
 
     @GetMapping("/delete/{wordId}")

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface WordRepository extends JpaRepository<Word, Integer> {
 
-    List<Word> findAllByTopicId(int id);
+    List<Word> findAllByTopic_Id(int id);
 }

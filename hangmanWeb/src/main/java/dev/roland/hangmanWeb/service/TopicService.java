@@ -15,5 +15,4 @@ public interface TopicService {
     Topic save(Topic topic);
 
     void deleteById(int id);
-
 }

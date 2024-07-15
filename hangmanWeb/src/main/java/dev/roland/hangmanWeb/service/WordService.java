@@ -10,9 +10,11 @@ public interface WordService {
 
     Word findById(int id);
 
-    List<Word> findAllByTopicId(int topicId);
+    List<Word> findAllByTopic_Id(int topicId);
 
-    Word save(Word word);
+    void save(String name, int topicId);
+
+    void save(Word word);
 
     void deleteById(int id);
 

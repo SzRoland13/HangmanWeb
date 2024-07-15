@@ -1,6 +1,8 @@
 package dev.roland.hangmanWeb.service;
 
+import dev.roland.hangmanWeb.model.Topic;
 import dev.roland.hangmanWeb.model.Word;
+import dev.roland.hangmanWeb.repository.TopicRepository;
 import dev.roland.hangmanWeb.repository.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +15,12 @@ import java.util.Random;
 public class WordServiceImpl implements WordService {
 
     private final WordRepository wordRepository;
+    private final TopicRepository topicRepository;
 
     @Autowired
-    public WordServiceImpl(WordRepository wordRepository) {
+    public WordServiceImpl(WordRepository wordRepository, TopicRepository topicRepository) {
         this.wordRepository = wordRepository;
+        this.topicRepository = topicRepository;
     }
 
     @Override
@@ -39,13 +43,27 @@ public class WordServiceImpl implements WordService {
     }
 
     @Override
-    public List<Word> findAllByTopicId(int topicId) {
-       return wordRepository.findAllByTopicId(topicId);
+    public List<Word> findAllByTopic_Id(int topicId) {
+       return wordRepository.findAllByTopic_Id(topicId);
     }
 
     @Override
-    public Word save(Word word) {
-        return wordRepository.save(word);
+    public void save(String name, int topicId) {
+        Optional<Topic> topic = topicRepository.findById(topicId);
+        if(topic.isPresent()) {
+            Topic newTopic = topic.get();
+            Word word = new Word();
+            word.setName(name);
+            word.setTopic(newTopic);
+            wordRepository.save(word);
+        }else {
+            throw new RuntimeException("Did not find topic with this id: " + topicId);
+        }
+    }
+
+    @Override
+    public void save(Word word) {
+        wordRepository.save(word);
     }
 
     @Override
@@ -55,7 +73,7 @@ public class WordServiceImpl implements WordService {
 
     @Override
     public String getRandomWordFromTopic(int topicId) {
-        List<Word> listOfWords = findAllByTopicId(topicId);
+        List<Word> listOfWords = findAllByTopic_Id(topicId);
         Random random = new Random();
         return listOfWords.get(random.nextInt(listOfWords.size())).getName();
     }

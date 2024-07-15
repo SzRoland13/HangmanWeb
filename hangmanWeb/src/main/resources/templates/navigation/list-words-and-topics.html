@@ -15,6 +15,7 @@
     <hr>
     <label for="topicDropdown">Select a Topic</label>
     <select id="topicDropdown">
+        <option value="0">All</option>
         <option th:each="topic : ${topics}" th:value="${topic.id}" th:text="${topic.name}"></option>
     </select>
     <br><br>

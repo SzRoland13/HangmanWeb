@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log(document.getElementById('topicDropdown'));
+    window.onload = function () {
+        getWordsByTopic(0);
+    }
     document.getElementById('topicDropdown').addEventListener('change', function () {
         var selectedTopicId = this.value;
         getWordsByTopic(selectedTopicId);
@@ -7,8 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function getWordsByTopic(topicId) {
         $.ajax({
-            type: 'GET',
-            url: '/nav/edit/getWordsByTopic?topicId=' + topicId,
+            type: 'POST',
+            url: '/nav/edit/getWordsByTopic',
+            data: JSON.stringify({topicId:topicId}),
+            contentType: 'application/json',
             success: function (data) {
                 populateTable(data);
             },
@@ -21,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function populateTable(data) {
         var tableBody = document.querySelector('#wordTable tbody');
         tableBody.innerHTML = '';
-        console.log(data);
 
         data.forEach(function (word) {
             var row = tableBody.insertRow();
@@ -32,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
             var cell2 = row.insertCell(1);
 
             var updateButton = document.createElement('button');
-            console.log(word.id);
             updateButton.textContent = 'Update';
             updateButton.onclick = function () {
                 window.location.href = '/word/update/showFormForUpdate/' + word.id;
